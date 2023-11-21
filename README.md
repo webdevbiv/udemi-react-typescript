@@ -1,6 +1,8 @@
-# React & TypesScript
+# React & TypeScript - The Practical Guide
 
-## Course Link
+## Course
+
+Build type-safe React apps & use TypeScript to enhance your components, state management, Redux & side effects code.
 
 [https://www.udemy.com/course/react-typescript-the-practical-guide/](https://www.udemy.com/course/react-typescript-the-practical-guide/)
 
