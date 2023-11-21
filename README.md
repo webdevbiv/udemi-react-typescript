@@ -60,3 +60,7 @@ What you’ll learn:
 - Who this course is for:
 - React developers who want to improve the quality & type-safety of their codebase
 - TypeScript developers who want to apply their knowledge to React apps
+
+## Recourses
+
+[https://github.com/academind/react-typescript-course-resources](https://github.com/academind/react-typescript-course-resources)
