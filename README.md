@@ -46,18 +46,19 @@ NO prior TypeScript knowledge is required - though basic knowledge will help (bu
 
 Basic React knowledge (components, JSX, state) IS required - more advanced concepts will be explained though
 
-What you’ll learn
-Learn how to build React apps with TypeScript
-Get a structured introduction to TypeScript
-Use both basic & advanced TypeScript concepts
-Build dynamic & highly flexible components with React & TypeScript
-Build advanced & highly dynamic components in a type-safe way
-Use TypeScript with React's Context API & useReducer() Hook
-Manage state and events with React and TypeScript
-Use TypeScript with Redux for type-safe global state management
-Are there any course requirements or prerequisites?
-Basic React knowledge of core concepts (components, JSX, state) is needed
-NO prior TypeScript knowledge is required
-Who this course is for:
-React developers who want to improve the quality & type-safety of their codebase
-TypeScript developers who want to apply their knowledge to React apps
+What you’ll learn:
+
+- Learn how to build React apps with TypeScript
+- Get a structured introduction to TypeScript
+- Use both basic & advanced TypeScript concepts
+- Build dynamic & highly flexible components with React & TypeScript
+- Build advanced & highly dynamic components in a type-safe way
+- Use TypeScript with React's Context API & useReducer() Hook
+- Manage state and events with React and TypeScript
+- Use TypeScript with Redux for type-safe global state management
+- Are there any course requirements or prerequisites?
+- Basic React knowledge of core concepts (components, JSX, state) is needed
+- NO prior TypeScript knowledge is required
+- Who this course is for:
+- React developers who want to improve the quality & type-safety of their codebase
+- TypeScript developers who want to apply their knowledge to React apps
