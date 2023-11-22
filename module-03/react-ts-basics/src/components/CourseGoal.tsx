@@ -5,25 +5,32 @@
 // };
 
 import {
-  PropsWithChildren,
+  // PropsWithChildren,
   // FC,
-  // ReactNode
+  ReactNode,
 } from "react";
 
 //NOTE - This is interface CourseGoalPropsInterface
-// interface CourseGoalPropsInterface {
-//   title: string;
-//   children: ReactNode;
-// }
-
-type CourseGoalPropsType = PropsWithChildren<{
-  id: number;
+interface CourseGoalPropsInterface {
   title: string;
+  children: ReactNode;
   onDelete: (id: number) => void;
-}>;
+  id: number;
+}
+
+// type CourseGoalPropsType = PropsWithChildren<{
+//   id: number;
+//   title: string;
+//   onDelete: (id: number) => void;
+// }>;
 
 //NOTE - This is function CourseGoal
-function CourseGoal({ title, children, onDelete, id }: CourseGoalPropsType) {
+function CourseGoal({
+  title,
+  children,
+  onDelete,
+  id,
+}: CourseGoalPropsInterface) {
   return (
     <article>
       <div>
