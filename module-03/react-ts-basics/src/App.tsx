@@ -10,7 +10,10 @@ export type CourseGoal = {
 
 export default function App() {
   const [goals, setGoals] = useState<CourseGoal[]>([]);
+
   const handleAddGoal = () => {
+    console.log("add goal");
+
     setGoals((prevGoals) => {
       const newGoal: CourseGoal = {
         id: Math.random(),

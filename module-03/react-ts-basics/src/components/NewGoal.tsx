@@ -4,11 +4,11 @@ function NewGoal() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <p>
         <label htmlFor='goal'>Your goal</label>
-
         <input
           type='text'
           id='goal'
