@@ -3,9 +3,9 @@ import { Header, CourseGoal, CourseGoalList, NewGoal } from "./components";
 import goalsImg from "./assets/goals.jpg";
 
 export type CourseGoal = {
+  id: number;
   title: string;
   description: string;
-  id: number;
 };
 
 export default function App() {

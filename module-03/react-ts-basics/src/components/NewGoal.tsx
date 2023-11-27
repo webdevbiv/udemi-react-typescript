@@ -1,8 +1,9 @@
 import { type FormEvent } from "react";
 
-function NewGoal() {
+function NewGoal({ onAddGoal }: { onAddGoal: () => void }) {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    onAddGoal;
   };
 
   return (
