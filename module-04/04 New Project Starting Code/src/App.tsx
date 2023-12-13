@@ -3,15 +3,26 @@ import Button from "./components/Button.tsx";
 import Container from "./components/Container.tsx";
 import InputWithRef from "./components/InputWithRef.tsx";
 import { useRef } from "react";
-import Form from "./components/Form.tsx";
+import Form, { type FormHandle } from "./components/Form.tsx";
 
 function App() {
   const input = useRef<HTMLInputElement>(null);
+  const customForm = useRef<FormHandle>(null);
   console.log(input);
+
+  function handleSubmit(data: unknown) {
+    const extractedData = data as { name: string; age: string; test: string };
+
+    console.log(extractedData);
+    customForm.current?.clear();
+  }
 
   return (
     <main>
-      <Form>
+      <Form
+        onSubmitForm={handleSubmit}
+        ref={customForm}
+      >
         <Input
           id='name'
           label='Your name'
