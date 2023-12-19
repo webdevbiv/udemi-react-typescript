@@ -47,7 +47,7 @@ export default function TimersContextProvider({
 
   const ctx: TimersContextValue = {
     timers: [],
-    isRunning: false,
+    isRunning: true,
     addTimer(timerData) {},
     startTimer() {},
     stopTimer() {},
