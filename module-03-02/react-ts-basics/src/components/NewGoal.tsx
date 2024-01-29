@@ -8,12 +8,13 @@ function NewGoal({onAddGoal}: NewGoalProps) {
   const goal = useRef<HTMLInputElement>(null);
   const summary = useRef<HTMLInputElement>(null);
 
+  //NOTE - Function handleSubmit with useRef. onAddGoal from App.tsx
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const enteredGoal = goal.current!.value;
     const enteredSummary = summary.current!.value;
-    console.log(enteredGoal, enteredSummary);
 
+    e.currentTarget.reset();
     onAddGoal(enteredGoal, enteredSummary);
   }
 
