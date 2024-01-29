@@ -15,12 +15,14 @@ type CourseGoalProps = {
 
 function CourseGoal({
   title,
+  children,
 }: // description
 CourseGoalProps) {
   return (
     <article>
       <div>
         <h2>{title}</h2>
+        {children}
         {/* <p>{description}</p> */}
       </div>
       <button>Delete</button>
