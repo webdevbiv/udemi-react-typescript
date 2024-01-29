@@ -3,7 +3,10 @@ import {CourseGoal} from "./components";
 export default function App() {
   return (
     <main>
-      <CourseGoal />
+      <CourseGoal
+        title='Learn React + TS'
+        description='Learn it from ground up'
+      />
     </main>
   );
 }
