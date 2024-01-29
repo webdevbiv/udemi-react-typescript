@@ -1,12 +1,12 @@
 import {ReactNode} from "react";
 
-interface HeaderProps {
+type HeaderProps = {
   image: {
     src: string;
     alt: string;
   };
   children: ReactNode;
-}
+};
 
 function Header({image, children}: HeaderProps) {
   return (
