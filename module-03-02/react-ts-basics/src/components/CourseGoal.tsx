@@ -16,29 +16,27 @@ import {FC, PropsWithChildren, ReactNode} from "react";
 //NOTE - PropsWithChildren
 type CourseGoalProps = PropsWithChildren<{title: string}>;
 
-const CourseGoal: FC<CourseGoalProps> = ({
-  title,
-  children,
-}: CourseGoalProps) => {
+function CourseGoal({title, children}: CourseGoalProps) {
   return (
     <article>
       <div>
         <h2>{title}</h2>
         {children}
-        {/* <p>{description}</p> */}
       </div>
       <button>Delete</button>
     </article>
   );
-};
+}
 
 export default CourseGoal;
 
-// function CourseGoal({
+//NOTE - FC
+// type CourseGoalProps = PropsWithChildren<{title: string}>;
+
+// const CourseGoal: FC<CourseGoalProps> = ({
 //   title,
 //   children,
-// }: // description
-// CourseGoalProps) {
+// }: CourseGoalProps) => {
 //   return (
 //     <article>
 //       <div>
@@ -49,6 +47,5 @@ export default CourseGoal;
 //       <button>Delete</button>
 //     </article>
 //   );
-// }
-
+// };
 // export default CourseGoal;
