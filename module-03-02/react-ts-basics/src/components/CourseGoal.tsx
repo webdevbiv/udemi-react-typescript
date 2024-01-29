@@ -1,10 +1,9 @@
-function CourseGoal({
-  title,
-  description,
-}: {
+type CourseGoalProps = {
   title: string;
   description: string;
-}) {
+};
+
+function CourseGoal({title, description}: CourseGoalProps) {
   return (
     <article>
       <div>
