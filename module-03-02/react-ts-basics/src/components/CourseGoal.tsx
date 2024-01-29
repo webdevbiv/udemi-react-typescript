@@ -1,14 +1,17 @@
-//NOTE - Type
-// type CourseGoalProps = {
-//   title: string;
-//   description: string;
-// };
+import {ReactNode} from "react";
 
-//NOTE - Interface
-interface CourseGoalProps {
+//NOTE - Type
+type CourseGoalProps = {
   title: string;
   description: string;
-}
+  children: ReactNode;
+};
+
+//NOTE - Interface
+// interface CourseGoalProps {
+//   title: string;
+//   description: string;
+// }
 
 function CourseGoal({title, description}: CourseGoalProps) {
   return (
