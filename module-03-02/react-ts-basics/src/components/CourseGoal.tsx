@@ -3,7 +3,7 @@ import {ReactNode} from "react";
 //NOTE - Type
 type CourseGoalProps = {
   title: string;
-  description: string;
+  // description: string;
   children: ReactNode;
 };
 
@@ -13,12 +13,15 @@ type CourseGoalProps = {
 //   description: string;
 // }
 
-function CourseGoal({title, description}: CourseGoalProps) {
+function CourseGoal({
+  title,
+}: // description
+CourseGoalProps) {
   return (
     <article>
       <div>
         <h2>{title}</h2>
-        <p>{description}</p>
+        {/* <p>{description}</p> */}
       </div>
       <button>Delete</button>
     </article>
