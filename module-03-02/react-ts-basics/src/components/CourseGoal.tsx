@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren, ReactNode} from "react";
+import {PropsWithChildren} from "react";
 
 //NOTE - Type
 // type CourseGoalProps = {
