@@ -1,7 +1,14 @@
-type CourseGoalProps = {
+//NOTE - Type
+// type CourseGoalProps = {
+//   title: string;
+//   description: string;
+// };
+
+//NOTE - Interface
+interface CourseGoalProps {
   title: string;
   description: string;
-};
+}
 
 function CourseGoal({title, description}: CourseGoalProps) {
   return (
