@@ -11,6 +11,7 @@ type WarningBoxProps = {
   children: ReactNode;
 };
 
+//NOTE - Discriminated Unions
 type InfoBoxProps = HintBoxProps | WarningBoxProps;
 
 function InfoBox(props: InfoBoxProps) {
