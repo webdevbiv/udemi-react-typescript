@@ -18,7 +18,8 @@ function App() {
       <Input
         label='Name'
         id='name'
-        ref={input}></Input>
+        ref={input}
+      />
     </main>
   );
 }
