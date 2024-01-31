@@ -1,6 +1,6 @@
 import {type ComponentPropsWithRef, type ElementType} from "react";
 
-//NOTE - Polimorphic Component
+//NOTE - #55 Polimorphic Component with Generic
 type ContainerProps<T extends ElementType> = {
   as?: T;
   children?: React.ReactNode;
@@ -12,7 +12,13 @@ function Container<C extends ElementType>({
   ...props
 }: ContainerProps<C>) {
   const Component = as || "div";
-  return <Component {...props}>{children}</Component>;
+  return (
+    <Component
+      className='container'
+      {...props}>
+      {children}
+    </Component>
+  );
 }
 
 export default Container;

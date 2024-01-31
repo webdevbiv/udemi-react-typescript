@@ -1,9 +1,9 @@
 import {type ComponentPropsWithoutRef} from "react";
 
-type BaseProps = {
-  text?: string;
-  className?: string;
-};
+// type BaseProps = {
+//   text?: string;
+//   className?: string;
+// };
 
 // type ButtonProps = BaseProps & {
 //   el: "button";

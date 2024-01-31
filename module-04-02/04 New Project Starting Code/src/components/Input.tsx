@@ -1,5 +1,6 @@
 import {ComponentPropsWithoutRef} from "react";
 
+//NOTE - #56 forwardRef
 type InputProps = {
   label: string;
   id: string;
