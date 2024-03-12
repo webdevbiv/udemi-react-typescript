@@ -2,6 +2,7 @@ import {ReactNode, useEffect, useState} from "react";
 import {get} from "./util/http";
 import BlogPosts, {type BlogPost} from "./components/BlogPosts";
 import fetchingImg from "./assets/data-fetching.png";
+import ErrorMessage from "./components/ErrorMessage";
 
 type RawBlogPosts = {
   id: number;
@@ -46,7 +47,7 @@ function App() {
   let content: ReactNode;
 
   if (error) {
-    content = <p id='error-message'>{error}</p>;
+    content = <ErrorMessage text={error} />;
   }
 
   if (fetchedPosts) {
