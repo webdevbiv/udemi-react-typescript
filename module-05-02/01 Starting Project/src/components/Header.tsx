@@ -3,7 +3,6 @@ import {useTimersContext} from "../context/timers-context.tsx";
 
 export default function Header() {
   const timersCtx = useTimersContext();
-  console.log(timersCtx);
 
   return (
     <header>
