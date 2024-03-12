@@ -12,29 +12,49 @@ type RawBlogPosts = {
 
 function App() {
   const [fetchedPosts, setFetchedPosts] = useState<BlogPost[] | undefined>([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState<string | undefined>();
 
   useEffect(() => {
     async function fetchPosts() {
-      const posts = (await get(
-        "https://jsonplaceholder.typicode.com/posts"
-      )) as RawBlogPosts[];
+      setIsFetching(true);
+      try {
+        const posts = (await get(
+          "https://jsonplaceholder.typicode.com/posts"
+        )) as RawBlogPosts[];
 
-      const blogPosts: BlogPost[] = posts.map((post) => ({
-        id: post.id,
-        title: post.title,
-        text: post.body,
-      }));
+        const blogPosts: BlogPost[] = posts.map((post) => ({
+          id: post.id,
+          title: post.title,
+          text: post.body,
+        }));
 
-      setFetchedPosts(blogPosts);
+        setFetchedPosts(blogPosts);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        }
+
+        // setError("Something went wrong!");
+      }
+      setIsFetching(false);
     }
 
     fetchPosts();
-  });
+  }, []);
 
   let content: ReactNode;
 
+  if (error) {
+    content = <p id='error-message'>{error}</p>;
+  }
+
   if (fetchedPosts) {
     content = <BlogPosts posts={fetchedPosts} />;
+  }
+
+  if (isFetching) {
+    content = <p id='loading-fallback'>Fetching posts...</p>;
   }
 
   return (
