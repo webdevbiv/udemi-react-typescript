@@ -1,15 +1,15 @@
-import {ReactNode, useEffect, useState} from "react";
+import {type ReactNode, useEffect, useState} from "react";
 import {get} from "./util/http";
 import BlogPosts, {type BlogPost} from "./components/BlogPosts";
 import fetchingImg from "./assets/data-fetching.png";
 import ErrorMessage from "./components/ErrorMessage";
 
-type RawBlogPosts = {
+interface RawBlogPosts {
   id: number;
   userId: number;
   title: string;
   body: string;
-};
+}
 
 function App() {
   const [fetchedPosts, setFetchedPosts] = useState<BlogPost[]>();
