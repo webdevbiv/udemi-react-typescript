@@ -21,7 +21,7 @@ function App() {
       setIsFetching(true);
       try {
         const posts = (await get(
-          "https://jsonplaceholder.typicode.com/posts123"
+          "https://jsonplaceholder.typicode.com/posts"
         )) as RawBlogPosts[];
 
         const blogPosts: BlogPost[] = posts.map((post) => ({
