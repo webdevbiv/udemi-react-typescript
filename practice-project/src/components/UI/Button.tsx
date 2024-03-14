@@ -2,7 +2,7 @@ import { Link, LinkProps } from 'react-router-dom';
 
 type ButtonProps = LinkProps &
 	React.ButtonHTMLAttributes<HTMLButtonElement> & {
-		text: string;
+		text: string | 'Click me';
 		textOnly?: boolean;
 	};
 

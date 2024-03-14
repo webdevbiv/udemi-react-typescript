@@ -1,6 +1,7 @@
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 	label: string;
 };
+
 const Input = ({ label, ...rest }: InputProps) => {
 	return (
 		<div>
