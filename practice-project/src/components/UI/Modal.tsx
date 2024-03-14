@@ -20,7 +20,7 @@ const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(
 		return {
 			open: () => {
 				if (dialogRef.current) {
-					dialogRef.current.showModal(); // showModal() is a built-in method available on the <dialog> element
+					dialogRef.current.showModal();
 				}
 			}
 		};
