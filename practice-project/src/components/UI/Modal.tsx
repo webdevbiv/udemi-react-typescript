@@ -1,27 +1,39 @@
-import { useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { createPortal } from 'react-dom';
+
+export type ModalHandle = {
+	open: () => void;
+};
+
 type ModalProps = {
 	children: React.ReactNode;
+	onClose: () => void;
 };
 
-const Modal = ({ children }: ModalProps) => {
+const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(
+	{ children, onClose },
+	ref
+) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
-	const open = () => {
-		if (dialogRef.current) {
-			dialogRef.current.showModal();
-		}
-	};
+	useImperativeHandle(ref, () => {
+		return {
+			open: () => {
+				if (dialogRef.current) {
+					dialogRef.current.showModal(); // showModal() is a built-in method available on the <dialog> element
+				}
+			}
+		};
+	});
 
-	useEffect(() => {
-		// Expose the open method to the outside
-		(window as any).openModal = open;
-	}, []);
-
-	return ReactDOM.createPortal(
-		<dialog ref={dialogRef}>{children}</dialog>,
+	return createPortal(
+		<dialog
+			ref={dialogRef}
+			onClose={onClose}>
+			{children}
+		</dialog>,
 		document.getElementById('modal-root')!
 	);
-};
+});
 
 export default Modal;
