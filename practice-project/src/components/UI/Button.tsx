@@ -1,31 +1,22 @@
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type BaseProps = {
-	children?: React.ReactNode;
+	children: React.ReactNode;
 	textOnly?: boolean;
+	onClick?: () => void; // Add other common props as needed
 };
 
-type ButtonLinkProps = LinkProps & BaseProps;
+type ButtonProps = BaseProps & {
+	to?: string; // Make 'to' optional
+	// Include any other props specific to when acting as a <Link>
+};
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-	BaseProps & {
-		to?: never;
-	};
-
-// Type guard function to check if props are for ButtonLinkProps
-function isLink(
-	props: ButtonProps | ButtonLinkProps
-): props is ButtonLinkProps {
-	return 'to' in props;
-}
-
-const Button = ({ textOnly, ...props }: ButtonProps | ButtonLinkProps) => {
+const Button = ({ to, textOnly, children, onClick, ...rest }: ButtonProps) => {
 	const className = `button ${textOnly ? 'text-only' : ''}`;
 
-	if (isLink(props)) {
-		// Props specific to <Link>
-		const { children, to, ...rest } = props;
+	// When 'to' prop is provided, render as a <Link>
+	if (to) {
 		return (
 			<Link
 				to={to}
@@ -34,18 +25,17 @@ const Button = ({ textOnly, ...props }: ButtonProps | ButtonLinkProps) => {
 				{children}
 			</Link>
 		);
-	} else {
-		// Props specific to <button>
-		// Since ButtonProps includes all valid <button> attributes, you can spread them directly
-		const { children, ...rest } = props;
-		return (
-			<button
-				className={className}
-				{...rest}>
-				{children}
-			</button>
-		);
 	}
+
+	// Otherwise, render as a <button>
+	return (
+		<button
+			className={className}
+			onClick={onClick}
+			{...rest}>
+			{children}
+		</button>
+	);
 };
 
 export default Button;
