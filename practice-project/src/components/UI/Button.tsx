@@ -1,41 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { Link, type LinkProps } from 'react-router-dom';
 
 type BaseProps = {
-	children: React.ReactNode;
+	children: ReactNode;
 	textOnly?: boolean;
-	onClick?: () => void; // Add other common props as needed
 };
 
-type ButtonProps = BaseProps & {
-	to?: string; // Make 'to' optional
-	// Include any other props specific to when acting as a <Link>
-};
+type ButtonProps = ComponentPropsWithoutRef<'button'> &
+	BaseProps & { to?: never };
+type ButtonLinkProps = LinkProps & BaseProps & { to: string };
 
-const Button = ({ to, textOnly, children, onClick, ...rest }: ButtonProps) => {
-	const className = `button ${textOnly ? 'text-only' : ''}`;
+function isRouterLink(
+	props: ButtonProps | ButtonLinkProps
+): props is ButtonLinkProps {
+	return 'to' in props;
+}
 
-	// When 'to' prop is provided, render as a <Link>
-	if (to) {
+export default function Button(props: ButtonProps | ButtonLinkProps) {
+	if (isRouterLink(props)) {
+		const { children, textOnly, ...otherProps } = props;
 		return (
 			<Link
-				to={to}
-				className={className}
-				{...rest}>
+				className={`button ${textOnly ? 'button--text-only' : ''}`}
+				{...otherProps}>
 				{children}
 			</Link>
 		);
 	}
 
-	// Otherwise, render as a <button>
+	const { children, textOnly, ...otherProps } = props;
+
 	return (
 		<button
-			className={className}
-			onClick={onClick}
-			{...rest}>
+			className={`button ${textOnly ? 'button--text-only' : ''}`}
+			{...otherProps}>
 			{children}
 		</button>
 	);
-};
-
-export default Button;
+}
