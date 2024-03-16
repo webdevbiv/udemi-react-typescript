@@ -1,16 +1,18 @@
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
-	label: string;
-};
+import type { ComponentPropsWithoutRef } from 'react';
 
-const Input = ({ label, ...rest }: InputProps) => {
+type InputProps = {
+	label: string;
+	id: string;
+} & ComponentPropsWithoutRef<'input'>;
+
+export default function Input({ label, id, ...props }: InputProps) {
 	return (
-		<div>
-			<label htmlFor={rest.id}>
-				{label}
-				<input {...rest} />
-			</label>
+		<div className='control'>
+			<label htmlFor={id}>{label}</label>
+			<input
+				id={id}
+				{...props}
+			/>
 		</div>
 	);
-};
-
-export default Input;
+}

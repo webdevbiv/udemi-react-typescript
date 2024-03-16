@@ -21,44 +21,9 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:react/jsx-runtime"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 2020,
-      "sourceType": "module"
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    },
-    "env": {
-      "browser": true,
-      "es2021": true
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint",
-      "react-hooks"
-    ],
-    "rules": {
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn"
-    }
   }
 }

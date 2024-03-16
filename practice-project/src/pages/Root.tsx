@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Navigation/Header';
+
+import MainHeader from '../components/Navigation/MainHeader.tsx';
+import SessionsContextProvider from '../store/sessions-context.tsx';
 
 export default function Root() {
-	return (
-		<>
-			<Header />
-			<Outlet />
-		</>
-	);
+  return (
+    <SessionsContextProvider>
+      <MainHeader />
+      <Outlet />
+    </SessionsContextProvider>
+  );
 }
